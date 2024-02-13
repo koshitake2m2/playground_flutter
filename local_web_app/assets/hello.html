@@ -1,0 +1,20 @@
+<p>hello</p>
+<div id="aa"></div>
+<button onclick="sendMessageToFlutter()">Send message to Flutter</button>
+<!-- aa.jsは呼び出せるけど, なぜかreact,vue,angularでbuildしたjsは呼び出せない… -->
+<script src="./aa.js"></script>
+<script>
+  function sendMessageToFlutter() {
+    console.log('helloWorld');
+    // window.helloWorldというオブジェクトはflutterのwebviewで定義されるのかな？
+    window.helloWorld.postMessage(JSON.stringify({
+      aaa: 'aaa',
+      bbb: {apple: 'banana'}
+    }));
+  }
+  function calledByFlutter(message) {
+    console.log('calledByFlutter!! in js', message);
+    document.getElementById('aa').innerHTML = 'wowoooooooooooooooo!!';
+  }
+  
+</script>
