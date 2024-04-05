@@ -2,3 +2,7 @@ flutter_application_*
 
 .idea
 .dart_tool
+
+# flutter
+.fvm
+
