@@ -63,6 +63,17 @@ fvm flutter packages pub run build_runner build
 fvm flutter run -d web-server --web-hostname=localhost --web-port=5000
 ```
 
+### sqlite
+
+```bash
+cd ~/Library/Android/sdk/platform-tools
+./adb shell
+
+cd /data/data/com.example.articles_app/
+sqlite3 app_flutter/db.sqlite
+```
+
+
 ## reference
 - [Flutter - Build apps for any screen](https://flutter.dev/)
   - [Cookbook | Flutter](https://docs.flutter.dev/cookbook)
