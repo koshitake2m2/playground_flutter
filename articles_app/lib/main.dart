@@ -1,6 +1,19 @@
+import 'package:articles_app/src/utils/log.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'src/database/migration.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final database = AppDatabase();
+
+  await database.into(database.authors).insert(AuthorsCompanion.insert(
+        name: 'Hello',
+      ));
+  List<Author> allItems = await database.select(database.authors).get();
+
+  Log.info('items in database: $allItems');
   runApp(const MyApp());
 }
 
@@ -64,6 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
+
+      Log.info("count: $_counter");
       _counter++;
     });
   }
