@@ -1,3 +1,4 @@
+import 'package:articles_app/src/database/posts_dao.dart';
 import 'package:articles_app/src/utils/log.dart';
 import 'package:drift/drift.dart';
 import 'dart:io';
@@ -16,7 +17,13 @@ class Authors extends Table {
   TextColumn get name => text()();
 }
 
-@DriftDatabase(tables: [Authors])
+@DataClassName('Post')
+class Posts extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get title => text()();
+}
+
+@DriftDatabase(tables: [Authors, Posts], daos: [PostsDao])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 

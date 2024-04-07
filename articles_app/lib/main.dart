@@ -1,6 +1,7 @@
 import 'package:articles_app/router/router.dart';
 import 'package:articles_app/src/utils/log.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/database/migration.dart';
 
@@ -15,7 +16,9 @@ void main() async {
   List<Author> allItems = await database.select(database.authors).get();
 
   Log.info('items in database: $allItems');
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
