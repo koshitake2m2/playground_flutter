@@ -44,3 +44,10 @@ app.*.map.json
 
 # flutter
 .fvm
+
+# web
+web/sql-wasm.js
+web/sql-wasm.wasm
+
+# setup
+node_modules

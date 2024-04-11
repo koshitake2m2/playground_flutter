@@ -2,15 +2,23 @@
 
 A new Flutter project.
 
-## Getting Started
+## setup
 
-This project is a starting point for a Flutter application.
+```bash
+cd setup_sqljs
+zsh setup.sh
+```
 
-A few resources to get you started if this is your first Flutter project:
+## sql.js
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. web/ に [sql-js/sql.js](https://github.com/sql-js/sql.js/releases) の `sql-wasm.js` と `sql-wasm.wasm` を置く
+  - https://github.com/sql-js/sql.js/releases/download/v1.10.2/sqljs-wasm.zip
+  - or `pnpm i sql.js` でインストールして `node_modules/sql.js/dist/sql-wasm.js` と `node_modules/sql.js/dist/sql-wasm.wasm` をコピー
+2. web/index.htmlに以下を追記
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```html
+<script src="sql-wasm.js"></script>
+```
+
+## tips
+- webのsqlはlocalstorageに保存されている。

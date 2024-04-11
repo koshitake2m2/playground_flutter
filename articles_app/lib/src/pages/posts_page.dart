@@ -20,8 +20,8 @@ class _PostsPage extends ConsumerState<PostsPage> {
   @override
   Widget build(BuildContext context) {
     final postsDao = ref.read(postsDaoProvider);
-    final db = ref.read(databaseProvider);
-    db.into(db.posts).insert(PostsCompanion.insert(title: 'Hello'));
+    // final db = ref.read(databaseProvider);
+    // db.into(db.posts).insert(PostsCompanion.insert(title: 'Hello'));
 
     return Scaffold(
       appBar: AppBar(title: const Text('Posts Page')),

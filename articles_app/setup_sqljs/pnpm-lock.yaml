@@ -1,0 +1,12 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  sql.js:
+    specifier: ^1.10.2
+    version: 1.10.2
+
+packages:
+
+  /sql.js@1.10.2:
+    resolution: {integrity: sha512-jnKFtdHxuVUNgu1vHwFoTjjwfTuVDVqzGpw7H05Zq3YMNMDOpLFyFGvpgTRIQGd/mqcYntuMy7iygYCytD62jQ==}
+    dev: false
