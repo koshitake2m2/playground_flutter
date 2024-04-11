@@ -21,4 +21,7 @@ zsh setup.sh
 ```
 
 ## tips
+
 - webのsqlはlocalstorageに保存されている。
+- vscodeの `Debug: Start Debugging` で実行するとホットリロードができる
+

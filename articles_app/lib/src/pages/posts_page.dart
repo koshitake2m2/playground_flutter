@@ -1,5 +1,6 @@
 import 'package:articles_app/src/database/database_di.dart';
 import 'package:articles_app/src/database/migration.dart';
+import 'package:articles_app/src/pages/posts_add_modal.dart';
 import 'package:articles_app/src/utils/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,6 +49,17 @@ class _PostsPage extends ConsumerState<PostsPage> {
             );
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return const PostsAddModal();
+            },
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
