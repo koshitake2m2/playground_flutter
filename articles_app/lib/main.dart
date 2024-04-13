@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:articles_app/router/router.dart';
 import 'package:articles_app/src/database/database_di.dart';
 import 'package:articles_app/src/utils/log.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -37,30 +38,47 @@ class MyApp extends HookConsumerWidget {
       AppLifecycleState? previous,
       AppLifecycleState current,
     ) {
+      callbackByState(current)(ref);
+    };
+  }
+
+  Future<void> Function(WidgetRef) callbackByState(AppLifecycleState current) {
+    return (WidgetRef ref) {
       switch (current) {
         case AppLifecycleState.resumed:
-          Log.info('AppLifecycleState.resumed');
-          break;
+          return onResumed(ref);
         case AppLifecycleState.inactive:
-          Log.info('AppLifecycleState.inactive');
-          break;
+          return onInactive(ref);
         case AppLifecycleState.paused:
-          Log.info('AppLifecycleState.paused');
-          break;
+          return onPaused(ref);
         case AppLifecycleState.detached:
-          Log.info('AppLifecycleState.detached');
-          onDetached(ref);
-          break;
+          return onDetached(ref);
         case AppLifecycleState.hidden:
-          Log.info('AppLifecycleState.hidden');
-          break;
+          return onHidden(ref);
       }
     };
   }
 
+  Future<void> onResumed(WidgetRef ref) async {
+    Log.info('AppLifecycleState.resumed');
+  }
+
+  Future<void> onInactive(WidgetRef ref) async {
+    Log.info('AppLifecycleState.inactive');
+  }
+
+  Future<void> onPaused(WidgetRef ref) async {
+    Log.info('AppLifecycleState.paused');
+  }
+
   Future<void> onDetached(WidgetRef ref) async {
+    Log.info('AppLifecycleState.detached');
     final db = ref.read(databaseProvider);
     await db.close();
     Log.info('Database closed');
+  }
+
+  Future<void> onHidden(WidgetRef ref) async {
+    Log.info('AppLifecycleState.hidden');
   }
 }
