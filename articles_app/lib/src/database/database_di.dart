@@ -11,3 +11,8 @@ final databaseProvider = Provider<AppDatabase>((ref) {
 final postsDaoProvider = Provider<PostsDao>((ref) {
   return PostsDao(ref.read(databaseProvider));
 });
+
+FutureProvider<void> closeDatabaseProvider = FutureProvider((ref) async {
+  final database = ref.read(databaseProvider);
+  await database.close();
+});
