@@ -9,6 +9,17 @@ cd setup_sqljs
 zsh setup.sh
 ```
 
+## sqlite
+
+```bash
+cd ~/Library/Android/sdk/platform-tools
+./adb shell
+
+cd /data/data/com.example.articles_app/
+sqlite3 app_flutter/db.sqlite
+```
+
+
 ## sql.js
 
 1. web/ に [sql-js/sql.js](https://github.com/sql-js/sql.js/releases) の `sql-wasm.js` と `sql-wasm.wasm` を置く

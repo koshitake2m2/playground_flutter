@@ -6,3 +6,5 @@ flutter_application_*
 # flutter
 .fvm
 
+# Mac
+.DS_Store
