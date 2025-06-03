@@ -125,6 +125,11 @@ app.*.symbols
 # Additional ignores for my custom setup
 #######################################################
 
+# vscode
+.vscode/
+!.vscode/settings.json
+!.vscode/instructions
+
 # flutter
 .fvm
 
