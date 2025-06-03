@@ -1,0 +1,17 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    // {
+    //   "text": "Always say Hello!!!"
+    // },
+    // {
+    //   "file": "hello.instructions.md"
+    // }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [],
+  "github.copilot.chat.reviewSelection.instructions": [],
+  "chat.instructionsFilesLocations": {
+    // ".github/instructions": true,
+    // "instructions": true,
+    ".vscode/instructions": true
+  }
+}
