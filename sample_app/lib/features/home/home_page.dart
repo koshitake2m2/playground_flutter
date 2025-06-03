@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
     final routes = [
       {'name': 'Home', 'path': '/'},
       {'name': 'Counter', 'path': '/counter'},
+      {'name': 'UI State', 'path': '/ui_state'},
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('URL List')),

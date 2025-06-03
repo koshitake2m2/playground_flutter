@@ -4,14 +4,26 @@ applyTo: "**"
 
 # Project Instructions
 
-## Router Location
+## Project Structure
 
-The router configuration for this project is located at:
+```text
+lib
+├── core              # Core functionalities
+│   ├── di            # Dependency Injection
+│   ├── utils         # Utilities
+│   └── routing       # Routing
+├── features          # Feature modules
+│   └── XXX
+└── main.dart
+```
 
-`lib/routing/router.dart`
+## Dependency Injection
 
-This file contains the GoRouter setup and route definitions for the Flutter application.
+- We use `riverpod` for dependency injection in this project.
+- We define `Provider` in `lib/core/di/di.dart`.
 
----
+## Routing
 
-If you need to update or add routes, edit `lib/routing/router.dart` accordingly.
+- We use `go_router` for routing in this project.
+- We define routing in `lib/routing/router.dart`.
+
