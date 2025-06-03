@@ -8,6 +8,38 @@ import 'todo_provider.dart';
 class TodoPage extends HookConsumerWidget {
   const TodoPage({super.key});
 
+  Future<void> _addTodo(BuildContext context, WidgetRef ref) async {
+    final title = await showDialog<String>(
+      context: context,
+      builder: (context) => const _TodoEditDialog(),
+    );
+    if (title != null && title.trim().isNotEmpty) {
+      await ref
+          .read(todoListProvider.notifier)
+          .add(Todo(id: const Uuid().v4(), title: title.trim()));
+    }
+  }
+
+  Future<void> _editTodo(BuildContext context, WidgetRef ref, Todo todo) async {
+    final newTitle = await showDialog<String>(
+      context: context,
+      builder: (context) => _TodoEditDialog(initial: todo.title),
+    );
+    if (newTitle != null && newTitle.trim().isNotEmpty) {
+      await ref
+          .read(todoListProvider.notifier)
+          .edit(Todo(id: todo.id, title: newTitle.trim()));
+    }
+  }
+
+  Future<void> _deleteTodo(
+    BuildContext context,
+    WidgetRef ref,
+    Todo todo,
+  ) async {
+    await ref.read(todoListProvider.notifier).delete(todo.id);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final todosAsync = ref.watch(filteredTodoListProvider);
@@ -47,31 +79,13 @@ class TodoPage extends HookConsumerWidget {
                             IconButton(
                               icon: const Icon(Icons.edit),
                               onPressed: () async {
-                                final newTitle = await showDialog<String>(
-                                  context: context,
-                                  builder:
-                                      (context) =>
-                                          _TodoEditDialog(initial: todo.title),
-                                );
-                                if (newTitle != null &&
-                                    newTitle.trim().isNotEmpty) {
-                                  await ref
-                                      .read(todoListProvider.notifier)
-                                      .edit(
-                                        Todo(
-                                          id: todo.id,
-                                          title: newTitle.trim(),
-                                        ),
-                                      );
-                                }
+                                await _editTodo(context, ref, todo);
                               },
                             ),
                             IconButton(
                               icon: const Icon(Icons.delete),
                               onPressed: () async {
-                                await ref
-                                    .read(todoListProvider.notifier)
-                                    .delete(todo.id);
+                                await _deleteTodo(context, ref, todo);
                               },
                             ),
                           ],
@@ -87,15 +101,7 @@ class TodoPage extends HookConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final title = await showDialog<String>(
-            context: context,
-            builder: (context) => const _TodoEditDialog(),
-          );
-          if (title != null && title.trim().isNotEmpty) {
-            await ref
-                .read(todoListProvider.notifier)
-                .add(Todo(id: const Uuid().v4(), title: title.trim()));
-          }
+          await _addTodo(context, ref);
         },
         child: const Icon(Icons.add),
       ),
