@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
       {'name': 'Home', 'path': '/'},
       {'name': 'Counter', 'path': '/counter'},
       {'name': 'UI State', 'path': '/ui_state'},
+      {'name': 'todo_riverpod', 'path': '/todo_riverpod'},
     ];
     return Scaffold(
       appBar: AppBar(title: const Text('URL List')),

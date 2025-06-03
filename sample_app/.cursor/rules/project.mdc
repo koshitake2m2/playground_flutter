@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Project Instructions
+
+## Project Structure
+
+```text
+lib
+├── core              # Core functionalities
+│   ├── di            # Dependency Injection
+│   └── routing       # Routing
+├── features          # Feature modules
+│   └── XXX
+└── main.dart
+```
+
+## Dependency Injection
+
+- We use `riverpod` for dependency injection in this project.
+- We define `Provider` for `core` in `lib/core/di/di.dart`.
+- We should define `Provider` for any feature in its directory. e.g. `lib/features/xxx/xxx_di.dart`.
+
+## Routing
+
+- We use `go_router` for routing in this project.
+- We define routing in `lib/routing/router.dart`.
+
+## Riverpod
+
+- Do not use `riverpod_generator` and `riverpod_annotation`.
+- Do not use legacy providers such as the following.
+  - e.g. StateProvider, StateNotifierProvider, ChangeNotifierProvider
