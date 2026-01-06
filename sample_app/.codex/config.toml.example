@@ -6,6 +6,9 @@ web_search_request = true
 
 notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
 
+[projects."~/koshitake2m2/playground_flutter"]
+trust_level = "trusted"
+
 [projects."~/koshitake2m2/playground_flutter/sample_app"]
 trust_level = "trusted"
 allowlist = [
@@ -17,9 +20,6 @@ allowlist = [
    { command = "fvm dart format" },
    { command = "fvm flutter test" },
 ]
-
-[projects."~/koshitake2m2/playground_flutter"]
-trust_level = "trusted"
 
 [notice]
 "hide_gpt-5.1-codex-max_migration_prompt" = true

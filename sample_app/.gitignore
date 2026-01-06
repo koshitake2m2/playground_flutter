@@ -35,7 +35,7 @@ migrate_working_dir/
 .codex/*
 !.codex/prompts/
 !.codex/AGENTS.md
-!.codex/config.toml
+!.codex/config.toml.example
 
 # Flutter/Dart/Pub related
 **/doc/api/
