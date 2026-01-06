@@ -18,6 +18,9 @@ allowlist = [
    { command = "fvm flutter test" },
 ]
 
+[projects."~/koshitake2m2/playground_flutter"]
+trust_level = "trusted"
+
 [notice]
 "hide_gpt-5.1-codex-max_migration_prompt" = true
 

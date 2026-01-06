@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Demo Pages API
+  version: 1.0.0
+  description: デモページ一覧とTODO CRUDの論理API
+paths:
+  /demo-pages:
+    get:
+      summary: デモページ一覧を取得
+      responses:
+        '200':
+          description: デモページ一覧
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DemoPage'
+  /todos:
+    get:
+      summary: TODO一覧を取得
+      responses:
+        '200':
+          description: TODO一覧
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+    post:
+      summary: TODOを追加
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoCreate'
+      responses:
+        '201':
+          description: 作成済みTODO
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+  /todos/{id}:
+    put:
+      summary: TODOを更新
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoUpdate'
+      responses:
+        '200':
+          description: 更新済みTODO
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+    delete:
+      summary: TODOを削除
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: 削除完了
+components:
+  schemas:
+    Todo:
+      type: object
+      required: [id, title]
+      properties:
+        id:
+          type: string
+          description: 内部識別子
+        title:
+          type: string
+          description: タイトル
+    TodoCreate:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+    TodoUpdate:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+    DemoPage:
+      type: object
+      required: [name, route]
+      properties:
+        name:
+          type: string
+        route:
+          type: string
