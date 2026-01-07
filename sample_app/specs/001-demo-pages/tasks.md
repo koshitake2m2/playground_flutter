@@ -27,7 +27,7 @@ description: "機能実装のタスク一覧"
 
 **目的**: 初期化と基本構造
 
-- [ ] T001 plan.mdの構成に従ってディレクトリを作成する（`lib/ui/home/`, `lib/ui/todo_crud/`, `lib/ui/stateful_shell_route/`, `lib/data/db/`, `lib/data/repositories/`, `lib/data/services/`, `lib/domain/models/`, `test/ui/`, `test/data/`, `testing/fakes/`）
+- [x] T001 plan.mdの構成に従ってディレクトリを作成する（`lib/ui/home/`, `lib/ui/todo_crud/`, `lib/ui/stateful_shell_route/`, `lib/data/db/`, `lib/data/repositories/`, `lib/data/services/`, `lib/domain/models/`, `test/ui/`, `test/data/`, `testing/fakes/`）
 
 ---
 
@@ -37,8 +37,8 @@ description: "機能実装のタスク一覧"
 
 **⚠️ CRITICAL**: ここが完了するまでストーリー実装を開始しない
 
-- [ ] T002 GoRouter設定を追加する（`lib/routing/app_router.dart`）
-- [ ] T003 RiverpodのProviderScopeとルーター接続を反映する（`lib/main.dart`）
+- [x] T002 GoRouter設定を追加する（`lib/routing/app_router.dart`）
+- [x] T003 RiverpodのProviderScopeとルーター接続を反映する（`lib/main.dart`）
 
 **Checkpoint**: 基盤完了
 
@@ -54,19 +54,19 @@ description: "機能実装のタスク一覧"
 
 > **NOTE: テストを先に書き、失敗することを確認してから実装**
 
-- [ ] T004 [P] [US1] DemoPage用fake serviceを作成する（`testing/fakes/fake_demo_page_service.dart`）
-- [ ] T005 [P] [US1] DemoPage用fake repositoryを作成する（`testing/fakes/fake_demo_page_repository.dart`）
-- [ ] T006 [P] [US1] HomeViewModelのユニットテストを追加する（`test/ui/home_view_model_test.dart`）
-- [ ] T007 [P] [US1] DemoPageRepositoryのユニットテストを追加する（`test/data/demo_page_repository_test.dart`）
+- [x] T004 [P] [US1] DemoPage用fake serviceを作成する（`testing/fakes/fake_demo_page_service.dart`）
+- [x] T005 [P] [US1] DemoPage用fake repositoryを作成する（`testing/fakes/fake_demo_page_repository.dart`）
+- [x] T006 [P] [US1] HomeViewModelのユニットテストを追加する（`test/ui/home_view_model_test.dart`）
+- [x] T007 [P] [US1] DemoPageRepositoryのユニットテストを追加する（`test/data/demo_page_repository_test.dart`）
 
 ### 実装
 
-- [ ] T008 [P] [US1] DemoPageモデルを追加する（`lib/domain/models/demo_page.dart`）
-- [ ] T009 [P] [US1] DemoPageServiceを実装する（`lib/data/services/demo_page_service.dart`）
-- [ ] T010 [US1] DemoPageRepositoryを実装する（`lib/data/repositories/demo_page_repository.dart`）
-- [ ] T011 [P] [US1] HomeViewModelを実装する（`lib/ui/home/view_models/home_view_model.dart`）
-- [ ] T012 [US1] HomeScreenを実装する（`lib/ui/home/widgets/home_screen.dart`）
-- [ ] T013 [US1] ホームルートを登録する（`lib/routing/app_router.dart`）
+- [x] T008 [P] [US1] DemoPageモデルを追加する（`lib/domain/models/demo_page.dart`）
+- [x] T009 [P] [US1] DemoPageServiceを実装する（`lib/data/services/demo_page_service.dart`）
+- [x] T010 [US1] DemoPageRepositoryを実装する（`lib/data/repositories/demo_page_repository.dart`）
+- [x] T011 [P] [US1] HomeViewModelを実装する（`lib/ui/home/view_models/home_view_model.dart`）
+- [x] T012 [US1] HomeScreenを実装する（`lib/ui/home/widgets/home_screen.dart`）
+- [x] T013 [US1] ホームルートを登録する（`lib/routing/app_router.dart`）
 
 **Checkpoint**: US1が独立して動作・テスト可能
 
@@ -80,22 +80,22 @@ description: "機能実装のタスク一覧"
 
 ### テスト（必須: ViewModel/Repository追加時）
 
-- [ ] T014 [P] [US2] TodoLocalService用fakeを作成する（`testing/fakes/fake_todo_local_service.dart`）
-- [ ] T015 [P] [US2] TodoRepository用fakeを作成する（`testing/fakes/fake_todo_repository.dart`）
-- [ ] T016 [P] [US2] TodoCrudViewModelのユニットテストを追加する（`test/ui/todo_crud_view_model_test.dart`）
-- [ ] T017 [P] [US2] TodoRepositoryのユニットテストを追加する（`test/data/todo_repository_test.dart`）
+- [x] T014 [P] [US2] TodoLocalService用fakeを作成する（`testing/fakes/fake_todo_local_service.dart`）
+- [x] T015 [P] [US2] TodoRepository用fakeを作成する（`testing/fakes/fake_todo_repository.dart`）
+- [x] T016 [P] [US2] TodoCrudViewModelのユニットテストを追加する（`test/ui/todo_crud_view_model_test.dart`）
+- [x] T017 [P] [US2] TodoRepositoryのユニットテストを追加する（`test/data/todo_repository_test.dart`）
 
 ### 実装
 
-- [ ] T018 [P] [US2] Todoモデルを追加する（`lib/domain/models/todo.dart`）
-- [ ] T019 [P] [US2] Driftのテーブル定義を追加する（`lib/data/db/todo_tables.dart`）
-- [ ] T020 [US2] Driftデータベースを実装する（`lib/data/db/app_database.dart`）
-- [ ] T021 [US2] `fvm flutter pub run build_runner build --delete-conflicting-outputs`を実行し、生成ファイルを確認する（`lib/data/db/app_database.g.dart`）
-- [ ] T022 [P] [US2] TodoLocalServiceを実装する（`lib/data/services/todo_local_service.dart`）
-- [ ] T023 [US2] TodoRepositoryを実装する（`lib/data/repositories/todo_repository.dart`）
-- [ ] T024 [P] [US2] TodoCrudViewModelを実装する（`lib/ui/todo_crud/view_models/todo_crud_view_model.dart`）
-- [ ] T025 [US2] TodoCrudScreenを実装する（`lib/ui/todo_crud/widgets/todo_crud_screen.dart`）
-- [ ] T026 [US2] TODOルートを登録する（`lib/routing/app_router.dart`）
+- [x] T018 [P] [US2] Todoモデルを追加する（`lib/domain/models/todo.dart`）
+- [x] T019 [P] [US2] Driftのテーブル定義を追加する（`lib/data/db/todo_tables.dart`）
+- [x] T020 [US2] Driftデータベースを実装する（`lib/data/db/app_database.dart`）
+- [x] T021 [US2] `fvm flutter pub run build_runner build --delete-conflicting-outputs`を実行し、生成ファイルを確認する（`lib/data/db/app_database.g.dart`）
+- [x] T022 [P] [US2] TodoLocalServiceを実装する（`lib/data/services/todo_local_service.dart`）
+- [x] T023 [US2] TodoRepositoryを実装する（`lib/data/repositories/todo_repository.dart`）
+- [x] T024 [P] [US2] TodoCrudViewModelを実装する（`lib/ui/todo_crud/view_models/todo_crud_view_model.dart`）
+- [x] T025 [US2] TodoCrudScreenを実装する（`lib/ui/todo_crud/widgets/todo_crud_screen.dart`）
+- [x] T026 [US2] TODOルートを登録する（`lib/routing/app_router.dart`）
 
 **Checkpoint**: US1/US2が独立して動作・テスト可能
 
@@ -109,14 +109,14 @@ description: "機能実装のタスク一覧"
 
 ### テスト（必須: ViewModel/Repository追加時）
 
-- [ ] T027 [P] [US3] StatefulShellViewModelのユニットテストを追加する（`test/ui/stateful_shell_view_model_test.dart`）
-- [ ] T028 [P] [US3] サブViewModelのユニットテストを追加する（`test/ui/shell_counter_view_model_test.dart`, `test/ui/shell_notes_view_model_test.dart`）
+- [x] T027 [P] [US3] StatefulShellViewModelのユニットテストを追加する（`test/ui/stateful_shell_view_model_test.dart`）
+- [x] T028 [P] [US3] サブViewModelのユニットテストを追加する（`test/ui/shell_counter_view_model_test.dart`, `test/ui/shell_notes_view_model_test.dart`）
 
 ### 実装
 
-- [ ] T029 [P] [US3] StatefulShell関連ViewModelを実装する（`lib/ui/stateful_shell_route/view_models/stateful_shell_view_model.dart`, `lib/ui/stateful_shell_route/view_models/shell_counter_view_model.dart`, `lib/ui/stateful_shell_route/view_models/shell_notes_view_model.dart`）
-- [ ] T030 [P] [US3] StatefulShellRoute用Widgetを実装する（`lib/ui/stateful_shell_route/widgets/stateful_shell_route_screen.dart`, `lib/ui/stateful_shell_route/widgets/shell_counter_screen.dart`, `lib/ui/stateful_shell_route/widgets/shell_notes_screen.dart`）
-- [ ] T031 [US3] StatefulShellRouteのルート定義を追加する（`lib/routing/app_router.dart`）
+- [x] T029 [P] [US3] StatefulShell関連ViewModelを実装する（`lib/ui/stateful_shell_route/view_models/stateful_shell_view_model.dart`, `lib/ui/stateful_shell_route/view_models/shell_counter_view_model.dart`, `lib/ui/stateful_shell_route/view_models/shell_notes_view_model.dart`）
+- [x] T030 [P] [US3] StatefulShellRoute用Widgetを実装する（`lib/ui/stateful_shell_route/widgets/stateful_shell_route_screen.dart`, `lib/ui/stateful_shell_route/widgets/shell_counter_screen.dart`, `lib/ui/stateful_shell_route/widgets/shell_notes_screen.dart`）
+- [x] T031 [US3] StatefulShellRouteのルート定義を追加する（`lib/routing/app_router.dart`）
 
 **Checkpoint**: 全ストーリーが独立して動作・テスト可能
 
@@ -126,8 +126,8 @@ description: "機能実装のタスク一覧"
 
 **目的**: 複数ストーリーに影響する改善
 
-- [ ] T032 [P] quickstartの検証と必要な修正を行う（`specs/001-demo-pages/quickstart.md`）
-- [ ] T033 [P] ドキュメントの最終チェックを行う（`specs/001-demo-pages/spec.md`, `specs/001-demo-pages/plan.md`）
+- [x] T032 [P] quickstartの検証と必要な修正を行う（`specs/001-demo-pages/quickstart.md`）
+- [x] T033 [P] ドキュメントの最終チェックを行う（`specs/001-demo-pages/spec.md`, `specs/001-demo-pages/plan.md`）
 
 ---
 
