@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 import 'package:sample_app/data/repositories/todo_repository.dart';
 import 'package:sample_app/ui/todo_crud/view_models/todo_crud_view_model.dart';
-import 'package:sample_app/testing/fakes/fake_todo_repository.dart';
+import '../../testing/fakes/fake_todo_repository.dart';
 
 void main() {
   test('adds todo and updates state', () async {
