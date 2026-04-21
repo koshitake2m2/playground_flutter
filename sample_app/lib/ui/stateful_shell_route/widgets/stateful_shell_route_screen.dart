@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../view_models/stateful_shell_view_model.dart';
-
-class StatefulShellRouteScreen extends ConsumerWidget {
-  const StatefulShellRouteScreen({
-    required this.navigationShell,
-    super.key,
-  });
+class StatefulShellRouteScreen extends StatelessWidget {
+  const StatefulShellRouteScreen({required this.navigationShell, super.key});
 
   final StatefulNavigationShell navigationShell;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.read(statefulShellViewModelProvider.notifier);
-    viewModel.syncWith(navigationShell.currentIndex);
-    final state = ref.watch(statefulShellViewModelProvider);
-
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('StatefulShellRoute'),
@@ -34,19 +24,21 @@ class StatefulShellRouteScreen extends ConsumerWidget {
       ),
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: state.currentIndex,
-        onTap: (index) {
-          viewModel.setIndex(index);
-          navigationShell.goBranch(index);
-        },
+        type: BottomNavigationBarType.fixed,
+        currentIndex: navigationShell.currentIndex,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
+        onTap: navigationShell.goBranch,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.exposure_plus_1),
             label: 'Counter',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.note), label: 'Notes'),
+          BottomNavigationBarItem(icon: Icon(Icons.casino), label: 'Random'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.note),
-            label: 'Notes',
+            icon: Icon(Icons.casino_outlined),
+            label: 'RandomHooks',
           ),
         ],
       ),

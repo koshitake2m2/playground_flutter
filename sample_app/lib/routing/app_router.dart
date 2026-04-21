@@ -3,6 +3,9 @@ import 'package:riverpod/riverpod.dart';
 
 import '../ui/home/widgets/home_screen.dart';
 import '../ui/stateful_shell_route/widgets/shell_counter_screen.dart';
+import '../ui/stateful_shell_route/widgets/shell_random_detail_screen.dart';
+import '../ui/stateful_shell_route/widgets/shell_random_hooks_screen.dart';
+import '../ui/stateful_shell_route/widgets/shell_random_screen.dart';
 import '../ui/stateful_shell_route/widgets/shell_notes_screen.dart';
 import '../ui/stateful_shell_route/widgets/stateful_shell_route_screen.dart';
 import '../ui/todo_crud/widgets/todo_crud_screen.dart';
@@ -20,10 +23,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         name: 'todo',
         builder: (context, state) => const TodoCrudScreen(),
       ),
-      GoRoute(
-        path: '/shell',
-        redirect: (_, __) => '/shell/counter',
-      ),
+      GoRoute(path: '/shell', redirect: (_, state) => '/shell/counter'),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             StatefulShellRouteScreen(navigationShell: navigationShell),
@@ -43,6 +43,33 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                 path: '/shell/notes',
                 name: 'shell-notes',
                 builder: (context, state) => const ShellNotesScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/shell/random',
+                name: 'shell-random',
+                builder: (context, state) => const ShellRandomScreen(),
+                routes: [
+                  GoRoute(
+                    path: ':num',
+                    name: 'shell-random-detail',
+                    builder: (context, state) => ShellRandomDetailScreen(
+                      num: state.pathParameters['num'] ?? '',
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/shell/random_hooks',
+                name: 'shell-random-hooks',
+                builder: (context, state) => const ShellRandomHooksScreen(),
               ),
             ],
           ),
