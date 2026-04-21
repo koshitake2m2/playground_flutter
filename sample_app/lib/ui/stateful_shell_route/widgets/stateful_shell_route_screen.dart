@@ -8,37 +8,35 @@ class StatefulShellRouteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('StatefulShellRoute'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go('/'),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () => context.go('/'),
-          ),
-        ],
-      ),
-      body: navigationShell,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: navigationShell.currentIndex,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
-        onTap: navigationShell.goBranch,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.exposure_plus_1),
-            label: 'Counter',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.note), label: 'Notes'),
-          BottomNavigationBarItem(icon: Icon(Icons.casino), label: 'Random'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.casino_outlined),
-            label: 'RandomHooks',
+    return ColoredBox(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Column(
+        children: [
+          Expanded(child: navigationShell),
+          BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: navigationShell.currentIndex,
+            selectedItemColor: Theme.of(context).colorScheme.primary,
+            unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
+            onTap: (index) {
+              final isCurrentBranch = index == navigationShell.currentIndex;
+              navigationShell.goBranch(index, initialLocation: isCurrentBranch);
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.exposure_plus_1),
+                label: 'Counter',
+              ),
+              BottomNavigationBarItem(icon: Icon(Icons.note), label: 'Notes'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.casino),
+                label: 'Random',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.casino_outlined),
+                label: 'RandomHooks',
+              ),
+            ],
           ),
         ],
       ),

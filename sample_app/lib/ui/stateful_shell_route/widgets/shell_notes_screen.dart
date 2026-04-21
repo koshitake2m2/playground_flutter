@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../view_models/shell_notes_view_model.dart';
+import 'shell_page_app_bar.dart';
 
 class ShellNotesScreen extends ConsumerStatefulWidget {
   const ShellNotesScreen({super.key});
@@ -36,24 +37,28 @@ class _ShellNotesScreenState extends ConsumerState<ShellNotesScreen> {
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('Notes (state should persist across tabs)'),
-          const SizedBox(height: 12),
-          TextField(
-            controller: _controller,
-            maxLines: 5,
-            onChanged: (value) =>
-                ref.read(shellNotesViewModelProvider.notifier).updateNotes(value),
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'メモを入力してください',
+    return Scaffold(
+      appBar: buildShellPageAppBar(context),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Notes (state should persist across tabs)'),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _controller,
+              maxLines: 5,
+              onChanged: (value) => ref
+                  .read(shellNotesViewModelProvider.notifier)
+                  .updateNotes(value),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'メモを入力してください',
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

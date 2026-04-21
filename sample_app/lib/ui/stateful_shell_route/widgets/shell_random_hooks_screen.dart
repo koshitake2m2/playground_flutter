@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../hooks/router_hook.dart';
+import 'shell_page_app_bar.dart';
 
 class ShellRandomHooksScreen extends HookWidget {
   const ShellRandomHooksScreen({super.key});
@@ -39,14 +40,17 @@ class ShellRandomHooksScreen extends HookWidget {
 
     usePageVisible(refreshHookRandomValueLater);
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('With useEffect: ${oneTimeRandomValue.value}'),
-          const SizedBox(height: 8),
-          Text('With usePageVisible: ${hookRandomValue.value}'),
-        ],
+    return Scaffold(
+      appBar: buildShellPageAppBar(context),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('With useEffect: ${oneTimeRandomValue.value}'),
+            const SizedBox(height: 8),
+            Text('With usePageVisible: ${hookRandomValue.value}'),
+          ],
+        ),
       ),
     );
   }

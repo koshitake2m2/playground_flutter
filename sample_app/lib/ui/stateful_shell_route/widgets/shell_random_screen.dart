@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../util/page_visible_subscription.dart';
+import 'shell_page_app_bar.dart';
 
 class ShellRandomScreen extends StatefulWidget {
   const ShellRandomScreen({super.key});
@@ -65,19 +66,22 @@ class _ShellRandomScreenState extends State<ShellRandomScreen> {
         ? _subscriptionRandomValue
         : 0;
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Without subscribe (post frame once): $_oneTimeRandomValue'),
-          const SizedBox(height: 8),
-          Text('With subscribePageVisible: $_subscriptionRandomValue'),
-          const SizedBox(height: 16),
-          OutlinedButton(
-            onPressed: () => context.go('/shell/random/$detailNum'),
-            child: const Text('Open /shell/random/:num'),
-          ),
-        ],
+    return Scaffold(
+      appBar: buildShellPageAppBar(context),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Without subscribe (post frame once): $_oneTimeRandomValue'),
+            const SizedBox(height: 8),
+            Text('With subscribePageVisible: $_subscriptionRandomValue'),
+            const SizedBox(height: 16),
+            OutlinedButton(
+              onPressed: () => context.push('/shell/random/$detailNum'),
+              child: const Text('Open /shell/random/:num'),
+            ),
+          ],
+        ),
       ),
     );
   }
