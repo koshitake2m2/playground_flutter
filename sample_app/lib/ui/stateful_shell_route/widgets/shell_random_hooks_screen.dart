@@ -37,15 +37,15 @@ class ShellRandomHooksScreen extends HookWidget {
       return null;
     }, const []);
 
-    useEffectOnPageVisible(refreshHookRandomValueLater);
+    usePageVisible(refreshHookRandomValueLater);
 
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Without hook (useEffect once): ${oneTimeRandomValue.value}'),
+          Text('With useEffect: ${oneTimeRandomValue.value}'),
           const SizedBox(height: 8),
-          Text('With useEffectOnPageVisible: ${hookRandomValue.value}'),
+          Text('With usePageVisible: ${hookRandomValue.value}'),
         ],
       ),
     );

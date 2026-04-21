@@ -1,7 +1,7 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 
-void useEffectOnPageVisible(void Function() onVisible) {
+void usePageVisible(void Function() onVisible) {
   final context = useContext();
   final router = GoRouter.of(context);
   final target =
