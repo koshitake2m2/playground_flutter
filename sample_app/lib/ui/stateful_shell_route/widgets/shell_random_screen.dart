@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../util/page_visible_subscription.dart';
+import '../../util/page_visibility_subscription.dart';
 import 'shell_page_app_bar.dart';
 
 class ShellRandomScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class ShellRandomScreen extends StatefulWidget {
 
 class _ShellRandomScreenState extends State<ShellRandomScreen> {
   final Random _random = Random();
-  PageVisibleSubscription? _subscription;
+  PageVisibilitySubscription? _subscription;
   int _oneTimeRandomValue = 0;
   int _subscriptionRandomValue = 0;
 
@@ -26,7 +26,7 @@ class _ShellRandomScreenState extends State<ShellRandomScreen> {
       if (!mounted) {
         return;
       }
-      _subscription = subscribePageVisible(
+      _subscription = PageVisibilitySubscription.listen(
         context: context,
         onVisible: _refreshSubscriptionRandomValue,
       );
@@ -74,7 +74,9 @@ class _ShellRandomScreenState extends State<ShellRandomScreen> {
           children: [
             Text('Without subscribe (post frame once): $_oneTimeRandomValue'),
             const SizedBox(height: 8),
-            Text('With subscribePageVisible: $_subscriptionRandomValue'),
+            Text(
+              'With PageVisibleSubscription.subscribe: $_subscriptionRandomValue',
+            ),
             const SizedBox(height: 16),
             OutlinedButton(
               onPressed: () => context.push('/shell/random/$detailNum'),
