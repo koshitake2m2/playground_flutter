@@ -90,7 +90,7 @@ description: "機能実装のタスク一覧"
 - [x] T018 [P] [US2] Todoモデルを追加する（`lib/domain/models/todo.dart`）
 - [x] T019 [P] [US2] Driftのテーブル定義を追加する（`lib/data/db/todo_tables.dart`）
 - [x] T020 [US2] Driftデータベースを実装する（`lib/data/db/app_database.dart`）
-- [x] T021 [US2] `fvm flutter pub run build_runner build --delete-conflicting-outputs`を実行し、生成ファイルを確認する（`lib/data/db/app_database.g.dart`）
+- [x] T021 [US2] `flutter pub run build_runner build --delete-conflicting-outputs`を実行し、生成ファイルを確認する（`lib/data/db/app_database.g.dart`）
 - [x] T022 [P] [US2] TodoLocalServiceを実装する（`lib/data/services/todo_local_service.dart`）
 - [x] T023 [US2] TodoRepositoryを実装する（`lib/data/repositories/todo_repository.dart`）
 - [x] T024 [P] [US2] TodoCrudViewModelを実装する（`lib/ui/todo_crud/view_models/todo_crud_view_model.dart`）

@@ -8,8 +8,8 @@
 ## 起動
 
 ```bash
-fvm flutter pub get
-fvm flutter run
+flutter pub get
+flutter run
 ```
 
 ## 動作確認

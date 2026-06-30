@@ -269,7 +269,7 @@ get_commands_for_language() {
     
     case "$lang" in
         *"Dart"*|*"Flutter"*)
-            echo "fvm flutter test && fvm dart format ."
+            echo "flutter test && dart format ."
             ;;
         *"Python"*)
             echo "cd src && pytest && ruff check ."
