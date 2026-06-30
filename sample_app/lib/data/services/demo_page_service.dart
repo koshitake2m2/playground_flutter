@@ -12,6 +12,7 @@ class StaticDemoPageService implements DemoPageService {
     return const [
       DemoPage(name: 'TODO CRUD', route: '/todo'),
       DemoPage(name: 'StatefulShellRoute', route: '/shell/counter'),
+      DemoPage(name: 'Maestro Sample', route: '/maestro/login'),
     ];
   }
 }

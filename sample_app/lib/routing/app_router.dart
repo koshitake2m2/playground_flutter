@@ -2,6 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../ui/home/widgets/home_screen.dart';
+import '../ui/maestro/pages/login_screen.dart';
+import '../ui/maestro/pages/todo_list_screen.dart';
 import '../ui/stateful_shell_route/widgets/shell_counter_screen.dart';
 import '../ui/stateful_shell_route/widgets/shell_random_detail_screen.dart';
 import '../ui/stateful_shell_route/widgets/shell_random_hooks_screen.dart';
@@ -22,6 +24,16 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         path: '/todo',
         name: 'todo',
         builder: (context, state) => const TodoCrudScreen(),
+      ),
+      GoRoute(
+        path: '/maestro/login',
+        name: 'maestro-login',
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/maestro/todos',
+        name: 'maestro-todos',
+        builder: (context, state) => const TodoListScreen(),
       ),
       GoRoute(path: '/shell', redirect: (_, state) => '/shell/counter'),
       StatefulShellRoute.indexedStack(

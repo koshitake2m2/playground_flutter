@@ -68,3 +68,6 @@ tmp/
 # android
 speaty_android_release.jks
 key.properties
+
+# maestro
+.maestro/
