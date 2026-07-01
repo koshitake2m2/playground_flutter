@@ -18,5 +18,6 @@ void main() {
     expect(find.text('Demo Pages'), findsOneWidget);
     expect(find.text('TODO CRUD'), findsOneWidget);
     expect(find.text('StatefulShellRoute'), findsOneWidget);
+    expect(find.text('Maestro Sample'), findsOneWidget);
   });
 }
