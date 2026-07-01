@@ -31,7 +31,9 @@ void main() {
 
     expect(find.text('Maestro TODO List'), findsOneWidget);
 
-    await tester.tap(find.bySemanticsIdentifier('back_button').first);
+    await tester.tap(
+      find.bySemanticsIdentifier('back_button_in_todo_list_screen').first,
+    );
     await tester.pumpAndSettle();
     expect(
       find.bySemanticsIdentifier('username_text_form_field'),

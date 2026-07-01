@@ -16,7 +16,7 @@ class TodoListScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Maestro TODO List'),
         leading: Semantics(
-          identifier: 'back_button',
+          identifier: 'back_button_in_todo_list_screen',
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () => context.go('/maestro/login'),

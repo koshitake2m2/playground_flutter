@@ -95,6 +95,7 @@ dev_dependencies:
   riverpod_lint: ^3.1.0
   drift_dev: ^2.26.1
   build_runner: ^2.4.15
+  patrol: ^4.6.1
 
 flutter:
   # The following line ensures that the Material Icons font is
@@ -134,3 +135,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+patrol:
+  app_name: My Sample App
+  android:
+    package_name: com.example.sample_app
+  ios:
+    bundle_id: com.example.sampleApp
+  macos:
+    bundle_id: com.example.sampleApp

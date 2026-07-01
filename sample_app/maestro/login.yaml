@@ -1,7 +1,7 @@
 appId: com.example.sampleApp
 ---
-# - launchApp:
-    # clearState: true
+- launchApp:
+    clearState: true
 - tapOn: "Maestro Sample"
 - tapOn:
     id: "username_text_form_field"
@@ -11,6 +11,6 @@ appId: com.example.sampleApp
 - inputText: "password"
 - tapOn: "Login"
 - tapOn:
-    id: "back_button"
+    id: "back_button_in_todo_list_screen"
 - tapOn:
     id: "back_button"

@@ -35,7 +35,7 @@ class MaestroLoginForm extends StatelessWidget {
           Semantics(
             identifier: 'username_text_form_field',
             child: TextFormField(
-              key: const Key('maestro_username_field'),
+              key: const Key('username_text_form_field'),
               initialValue: username,
               onChanged: onUsernameChanged,
               decoration: const InputDecoration(
@@ -48,7 +48,7 @@ class MaestroLoginForm extends StatelessWidget {
           Semantics(
             identifier: 'password_text_form_field',
             child: TextFormField(
-              key: const Key('maestro_password_field'),
+              key: const Key('password_text_form_field'),
               initialValue: password,
               onChanged: onPasswordChanged,
               obscureText: true,
